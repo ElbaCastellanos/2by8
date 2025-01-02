@@ -1,222 +1,264 @@
-/* General */
-
+/* VERSIÓNDESKTOP */
 @media (min-width: 768px){
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+        html, body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(246, 246, 245);
+            color: #000;
+            height: 100%vh;
+            width: 100%;
+            display: grid; /* Cambia a grid layout */
+            grid-template-columns: 300px 1fr; /* Sidebar fijo y contenido flexible */
+            grid-template-rows: auto 1fr 40px; /* Una fila para toda la página */
+            overflow: hidden;  /* Evitar scroll innecesario */
+        }
+
+    /********* PARTE LATERAL IZQUIERDA *********/
+        .zonamenu{
+        position:absolute; 
+        left:0px;
+        top:0px;
+        width:25%;
+        height:100%;
+        background-color: rgb(246, 246, 245);
+        }
+
+        .logo {
+        font-size: 21px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+        padding-top: 20px;
+        padding-left: 20px; /* Separación del borde izquierdo */
+        margin-bottom: 0; /* Elimina separación extra */
+        }
+
+        /* Barra lateral (sidebar) */
+        .sidebar {
+        display: block; /* Oculta la barra lateral inicialmente */
+        position: relative;
+        top: 30px; /* Aparece debajo del menú móvil */
+        left: 0;
+        width: 100%; /* Ocupa todo el ancho */
+        background-color: rgb(246, 246, 245);
+        z-index: 10;
+        padding: 10px 0;
+        }
+
+        .sidebar-nav {
+        flex-grow: 1; /* Expande para alinear con el grid */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 50px;
+        }
+
+        .sidebar-nav ul {
+        list-style: none;
+        padding: 5;
+        }
+
+        .sidebar-nav li {
+        margin-bottom: 10px;
+        }
+
+        .home-item {
+        margin-bottom: 30px; /* Margen inferior de "Home" */
+        }
+
+        .graphic-design-item {
+        margin-top: 30px; /* Margen superior de "Graphic Design" */
+        }
+        
+        .sidebar-nav a {
+        font-size: 16px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        padding-left: 20px; /* Separación del borde izquierdo */
+        display: block;
+        }
+
+        .sidebar-nav a:hover {
+        color: #F8A538;
+        }
+
+        .subproyectos {
+        list-style: none;
+        margin-left: 40px; /* Mayor sangría para submenús */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: none; /* Submenús ocultos por defecto */
+        }
+
+        .subproyectos li a {
+        font-size: 14px; /* Tamaño más pequeño para submenús */
+        font-weight: 400; /* Submenús sin negrita */
+        }
+
+        .sidebar-footer{
+            display: block; /* Oculta la barra lateral inicialmente */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%; /* Ocupa todo el ancho */
+            background-color: rgb(246, 246, 245);
+            z-index: 10;
+            padding: 10px 0;
+            }
+
+        /* Contact Section */
+        .sidebar-footer-nav {
+            flex-grow: 1; /* Expande para alinear con el grid */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            }
+
+        .sidebar-footer-nav ul {
+            list-style: none;
+            padding: 5;  
+        }
+
+        .sidebar-footer-nav li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-footer-nav a {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            padding-left: 20px; /* Separación del borde izquierdo */
+            display: block;
+        }
+
+        .sidebar-footer-nav a:hover {
+        color: #F8A538;
+        }
+
+    /********* PARTE CONTENIDO *********/
+        .zonacontenido{
+            position:absolute;
+            overflow-y: auto;
+            overflow-x: hidden;
+            left:25%;
+            top:0px;
+            width:75%;
+            height:98%;
+            background-color: rgb(246, 246, 245);
+        }
+
+
+        /* Grid de Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+            gap: 20px;
+            margin-right: 20px;
+            height: calc(100vh - 40px); /* Ajusta al alto disponible */
+            padding: 20px;
+            align-self: center; /* Asegura alineación vertical */
+        }
+
+        .project {
+            background-color: #ffffff;
+            width: 100%; /* Ajusta al contenedor */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover img {
+            opacity: 0.3; /* Cambia opacidad al pasar el cursor */
+        }
+
+        .project h2 {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 1.5em;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover h2 {
+            opacity: 1; /* Muestra el texto al pasar el cursor */
+        }
+
+        .contenedorcajitas {overflow: scroll}
+
+        .cajita { position:absolute; background-color: #FFFFFF; width:100px; height:100px }
+
+        .cajita img { max-width: 100%; height: auto; 
+            width: 100%;
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .cajita:hover img { 
+            opacity: 0.3;
+        }
+
+        .cajita H2 {
+            position: absolute;
+            top: 50%; /* Alineación vertical */
+            left: 50%; /* Alineación horizontal */
+            transform: translate(-50%, -50%); /* Ajusta el centro exacto */
+            font-size: 1.5em;
+            color: white; /* Asegura legibilidad */
+            z-index: 2; /* Muestra el texto sobre la imagen */
+            text-align: center; /* Centra el texto dentro de su contenedor */
+            opacity: 0; /* Inicialmente oculto */
+            transition: opacity 0.3s ease; /* Animación suave */
+        }
+
+        .cajita:hover H2 {
+            opacity: 1;
+            color:rgb(66, 85, 29);
+        }
+
+
+    /********* PARTE FOOTER *********/
+
+        .zonafooter{
+            position:absolute; 
+            left:25%;
+            bottom:0px;
+            width:75%;
+            height:2%;
+            background-color: rgb(246, 246, 245);
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom:0px;
+            color: rgb(2, 2, 2);
+            font-size: 12px; /* Tamaño pequeño */
+            height: 30px;
+            line-height: 30px;
+            vertical-align: middle;
+            left: 0px;
+        }
 }
 
-html, body {
-    font-family: 'Inter', sans-serif;
-    background-color: rgb(246, 246, 245);
-    color: #000;
-    height: 100%vh;
-    width: 100%;
-    display: grid; /* Cambia a grid layout */
-    grid-template-columns: 300px 1fr; /* Sidebar fijo y contenido flexible */
-    grid-template-rows: auto 1fr 40px; /* Una fila para toda la página */
-    overflow: hidden; /* Evitar scroll innecesario */
-}
-
-/* Sidebar */
-.sidebar {
-    grid-column: 1 / 2; /* Ocupa la primera columna */
-    grid-row: 1 / 2; /* Toda la fila */
-    width: 100%; /* Ajusta al espacio disponible */
-    background-color: rgb(246, 246, 245);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribuye logo y footer */
-    padding: 20px 0;
-    height: 100vh; /* Asegura que ocupa toda la altura */
-}
-
-.logo-secondary {
-    font-size: 21px;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-    padding-left: 20px; /* Separación del borde izquierdo */
-    margin-bottom: 0; /* Elimina separación extra */
-}
-
-/* Sidebar Navigation */
-.sidebar-nav {
-    flex-grow: 1; /* Expande para alinear con el grid */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 50px;
-}
-
-.sidebar-nav ul {
-    list-style: none;
-    padding: 5;
-}
-
-.sidebar-nav li {
-    margin-bottom: 10px;
-}
-
-.home-item {
-    margin-bottom: 30px; /* Margen inferior de "Home" */
-}
-
-.graphic-design-item {
-    margin-top: 30px; /* Margen superior de "Graphic Design" */
-}
-.sidebar-nav a {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    padding-left: 20px; /* Separación del borde izquierdo */
-    display: block;
-}
-
-.sidebar-nav a:hover {
-    color: #F8A538;
-}
-
-/* Submenús */
-.subproyectos {
-    list-style: none;
-    margin-left: 40px; /* Mayor sangría para submenús */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: none; /* Submenús ocultos por defecto */
-}
-
-.subproyectos li a {
-    font-size: 14px; /* Tamaño más pequeño para submenús */
-    font-weight: 400; /* Submenús sin negrita */
-}
-
-/* Contact Section */
-.sidebar-footer-nav {
-    list-style: none !important; /* Fuerza la eliminación de los puntos */
-    padding: 0 20px;
-    margin-bottom: 20px; /* Alineación precisa con el grid */
-}
-
-.sidebar-footer-nav li {
-    list-style: none !important; /* Elimina cualquier punto del navegador */
-    margin: 0; /* Elimina márgenes sobrantes */
-    padding: 0; /* Elimina padding extra */
-}
-
-.sidebar-footer-nav a {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    display: block;
-}
-
-.sidebar-footer-nav a:hover {
-    color: #F8A538;
-}
-
-/* Grid de Proyectos */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
-    gap: 20px;
-    margin-left: 280px; /* Espacio para el sidebar */
-    margin-right: 20px;
-    height: calc(100vh - 40px); /* Ajusta al alto disponible */
-    padding: 20px;
-    align-self: center; /* Asegura alineación vertical */
-}
-.projects-grid_OLD {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    margin: 0;
-    min-height: 100%; /* Asegura que ocupe espacio */
-    overflow-y: auto;
-}
-
-.project {
-    background-color: #ffffff;
-    width: 100%; /* Ajusta al contenedor */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.project img {
-    width: 100%;
-    height: auto;
-    transition: opacity 0.3s ease;
-}
-
-.project:hover img {
-    opacity: 0.3; /* Cambia opacidad al pasar el cursor */
-}
-
-.project h2 {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 1.5em;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project:hover h2 {
-    opacity: 1; /* Muestra el texto al pasar el cursor */
-}
-
-/* Footer */
-.footer {
-    position: absolute;
-    bottom:0px;
-    color: rgb(2, 2, 2);
-    font-size: 12px; /* Tamaño pequeño */
-    height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
-    left: 0px;
-}
-
-.cajita { position:absolute; background-color: #FFFFFF; width:100px; height:100px }
-
-.cajita img { max-width: 100%; height: auto; 
-    width: 100%;
-    height: auto;
-    transition: opacity 0.3s ease;
-}
-
-.cajita:hover img { 
-    opacity: 0.3;
-}
-
-.cajita H2 {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 1.5em;
-    color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.cajita:hover H2 {
-    opacity: 1;
-    color:#F8A538;
-}
-}
-
-/* VAMOS CON LA VERSIÓN WEB */
-/* Estilos para dispositivos móviles */
+/* VERSIÓN MÓVIL */
 @media (max-width: 768px) {
-    /* Estructura general */
     body {
         font-family: 'Inter', sans-serif;
         background-color: rgb(246, 246, 245);
@@ -234,11 +276,7 @@ html, body {
         text-decoration: none;
         margin-bottom: 0; /* Elimina separación extra */
     }
-    
 
-
-
-    /* Barra lateral (sidebar) */
     .sidebar {
         display: none; /* Oculta la barra lateral inicialmente */
         position: absolute;
@@ -258,7 +296,6 @@ html, body {
         display: block; /* Muestra la barra lateral cuando el menú está activo */
     }
 
-    /* Menú móvil */
     .menu-mobile {
         display: flex;
         justify-content: space-between; /* Logo a la izquierda y menú hamburguesa a la derecha */
@@ -272,7 +309,6 @@ html, body {
         cursor: pointer;
     }
 
-    /* Cuadrícula de proyectos */
     .projects-grid {
         display: grid;
         grid-template-columns: 1fr; /* Una columna */
@@ -306,85 +342,75 @@ html, body {
         color: #F8A538;
     }
 
- 
+    .sidebar-nav {
+        flex-grow: 1; /* Expande para alinear con el grid */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
 
-/***********mi puta vida ya***********/
-/* Submenús */
-.sidebar-nav {
-    flex-grow: 1; /* Expande para alinear con el grid */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 10px;
-}
+    .sidebar-nav ul {
+        list-style: none;
+        padding: 0;
+    }
 
-.sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-}
+    .sidebar-nav li {
+        margin-bottom: 10px;
+    }
 
-.sidebar-nav li {
-    margin-bottom: 10px;
-}
+    .home-item {
+        margin-bottom: 30px; /* Margen inferior de "Home" */
+    }
 
-.home-item {
-    margin-bottom: 30px; /* Margen inferior de "Home" */
-}
+    .sidebar-nav a {
+        font-size: 16px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        padding-left: 20px; /* Separación del borde izquierdo */
+        display: block;
+    }
 
-.sidebar-nav a {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    padding-left: 20px; /* Separación del borde izquierdo */
-    display: block;
-}
+    .sidebar-nav a:hover {
+        color: #F8A538;
+    }
 
-.sidebar-nav a:hover {
-    color: #F8A538;
-}
+    .subproyectos {
+        list-style: none;
+        margin-left: 40px; /* Mayor sangría para submenús */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: none; /* Submenús ocultos por defecto */
+    }
 
-.subproyectos {
-    list-style: none;
-    margin-left: 40px; /* Mayor sangría para submenús */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: none; /* Submenús ocultos por defecto */
-}
+    .subproyectos li a {
+        font-size: 14px; /* Tamaño más pequeño para submenús */
+        font-weight: 400; /* Submenús sin negrita */
+    }
 
-.subproyectos li a {
-    font-size: 14px; /* Tamaño más pequeño para submenús */
-    font-weight: 400; /* Submenús sin negrita */
-}
+    /* Contact Section */
+    .sidebar-footer-nav {
+        list-style: none !important; /* Fuerza la eliminación de los puntos */
+        padding: 0 20px;
+        margin-bottom: 20px; /* Alineación precisa con el grid */
+    }
 
-/* Contact Section */
-.sidebar-footer-nav {
-    list-style: none !important; /* Fuerza la eliminación de los puntos */
-    padding: 0 20px;
-    margin-bottom: 20px; /* Alineación precisa con el grid */
-}
+    .sidebar-footer-nav li {
+        list-style: none !important; /* Elimina cualquier punto del navegador */
+        margin: 0; /* Elimina márgenes sobrantes */
+        padding: 0; /* Elimina padding extra */
+    }
 
-.sidebar-footer-nav li {
-    list-style: none !important; /* Elimina cualquier punto del navegador */
-    margin: 0; /* Elimina márgenes sobrantes */
-    padding: 0; /* Elimina padding extra */
-}
+    .sidebar-footer-nav a {
+        font-size: 16px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        display: block;
+    }
 
-.sidebar-footer-nav a {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    display: block;
-}
-
-.sidebar-footer-nav a:hover {
-    color: #F8A538;
-}
-
-
-
-
-
-
+    .sidebar-footer-nav a:hover {
+        color: #F8A538;
+    }
 }

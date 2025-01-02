@@ -9,85 +9,43 @@ document.querySelectorAll('.menu-toggle').forEach(function (toggle) {
     });
 });
 
-function ordenar()
-{
-    h = window.innerHeight;
-    w = window.innerWidth;
-    // alert(w+" "+h);
+function ordenar() {
+    const cajas = document.querySelectorAll('.cajita'); // Selecciona todas las cajas
+    const footer = document.getElementById('footer'); // Selecciona el footer
+    const w = window.innerWidth * 0.75;
+    const h = window.innerHeight;
+    const separador = 30;
 
-    separador = 30;
+    const Alto_Sin_Separadores = h - separador * 4;
+    const Alto_Entre_Tres = Alto_Sin_Separadores / 3;
 
-    Alto_Sin_Separadores = h - (separador*4);
-    Alto_Entre_Tres =  Alto_Sin_Separadores / 3;
+    let yy = separador;
+    let xx = w - (separador + Alto_Entre_Tres) * 3;
 
-    document.getElementById('caja_1').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_1').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_2').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_2').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_3').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_3').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_4').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_4').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_5').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_5').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_6').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_6').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_7').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_7').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_8').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_8').style.height = Alto_Entre_Tres + "px";
-    document.getElementById('caja_9').style.width = Alto_Entre_Tres + "px";
-    document.getElementById('caja_9').style.height = Alto_Entre_Tres + "px";
+    // Ajustar las cajas dinámicamente
+    cajas.forEach((caja, index) => {
+        caja.style.width = `${Alto_Entre_Tres}px`;
+        caja.style.height = `${Alto_Entre_Tres}px`;
 
+        caja.style.left = `${xx}px`;
+        caja.style.top = `${yy}px`;
 
-   
-    yy = separador;
-    xx = w-((separador+Alto_Entre_Tres)*3);
-   
+        // Ajustar posición para nuevas filas
+        if ((index + 1) % 3 === 0) {
+            yy += Alto_Entre_Tres + separador;
+            xx = w - (separador + Alto_Entre_Tres) * 3;
+        } else {
+            xx += Alto_Entre_Tres + separador;
+        }
+    });
 
-    document.getElementById('footer').style.left = xx + "px";
+    // Ajustar la posición del footer
+    footer.style.left = `${xx}px`; // Alínea el footer a la izquierda
 
-    document.getElementById('caja_1').style.left = xx + "px";
-    document.getElementById('caja_1').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_2').style.left = xx + "px";
-    document.getElementById('caja_2').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_3').style.left = xx + "px";
-    document.getElementById('caja_3').style.top  = yy + "px";
-
-    yy = separador+((separador+Alto_Entre_Tres)*1);
-    xx = w-((separador+Alto_Entre_Tres)*3);
-   
-    document.getElementById('caja_4').style.left = xx + "px";
-    document.getElementById('caja_4').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_5').style.left = xx + "px";
-    document.getElementById('caja_5').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_6').style.left = xx + "px";
-    document.getElementById('caja_6').style.top  = yy + "px";
-
-    yy = separador+((separador+Alto_Entre_Tres)*2);
-    xx = w-((separador+Alto_Entre_Tres)*3);
-   
-    document.getElementById('caja_7').style.left = xx + "px";
-    document.getElementById('caja_7').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_8').style.left = xx + "px";
-    document.getElementById('caja_8').style.top  = yy + "px";
-
-    xx+=separador+Alto_Entre_Tres;
-    document.getElementById('caja_9').style.left = xx + "px";
-    document.getElementById('caja_9').style.top  = yy + "px";
 }
-window.addEventListener('resize', () => { ordenar(); });
-window.addEventListener('load', (event) => { ordenar(); });
+
+window.addEventListener('resize', ordenar);
+window.addEventListener('load', ordenar);
 
 
 // Mostrar/ocultar menú hamburguesa
