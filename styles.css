@@ -258,6 +258,18 @@
 
 /* PAGINAS */
 
+/* Estilo para el título general */
+.general-title {
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    color: #333; /* Color del texto */
+    margin-left: auto; /* Ajusta este margen según el margen de las imágenes */
+    text-align: left;
+}
+
+
 /* Clase para contener imágenes en una pila vertical */
 .image-stack {
     display: flex;
