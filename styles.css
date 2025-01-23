@@ -323,7 +323,7 @@
         justify-content: flex-end; /* Texto en la parte inferior */
         align-items: center;
         position: relative;
-        height: 150px; /* Altura fija para un diseño rectangular */
+        height: 250px; /* Altura fija para un diseño rectangular */
         background-color: #fff;
         overflow: hidden;
     }
@@ -345,7 +345,7 @@
         font-family: 'Afacad Flux', sans-serif;
         font-weight: 100; /* Thin */
         color: white;
-        font-size: 1em;
+        font-size: 1.5em;
         text-align: center;
         position: relative;
         z-index: 2;
