@@ -53,3 +53,11 @@ document.querySelector('.hamburger-menu').addEventListener('click', function () 
     const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('active'); // Activa/desactiva la clase 'active' para mostrar/ocultar el menú
 });
+
+// Deshabilitar el clic derecho en imágenes
+document.addEventListener('contextmenu', function (event) {
+    if (event.target.tagName.toLowerCase() === 'img') {
+        event.preventDefault(); // Evitar que aparezca el menú contextual
+        alert('Clic derecho deshabilitado en imágenes.');
+    }
+});
