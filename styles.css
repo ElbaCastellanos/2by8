@@ -255,6 +255,35 @@
             vertical-align: middle;
             left: 0px;
         }
+
+/* PAGINAS */
+
+/* Clase para contener imágenes en una pila vertical */
+.image-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado entre imágenes */
+    padding: 20px;
+}
+
+/* Contenedor individual de cada imagen */
+.image-container {
+    width: 100%;
+    max-width: 800px; /* Tamaño máximo opcional */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+}
+
+/* Imágenes que se ajustan al contenedor */
+.responsive-image {
+    width: 100%;
+    height: auto; /* Mantiene la proporción */
+    object-fit: cover; /* Opcional: asegura que se cubra el área visible */
+    border-radius: 8px; /* Esquinas redondeadas opcional */
+}
+
+
+
+
 }
 
 /* VERSIÓN MÓVIL */
