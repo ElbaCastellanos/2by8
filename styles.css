@@ -250,10 +250,11 @@
             bottom:0px;
             color: rgb(2, 2, 2);
             font-size: 12px; /* Tamaño pequeño */
-            height: 30px;
+            height: 20px;
             line-height: 30px;
             vertical-align: middle;
             left: 0px;
+            margin-bottom: 5px;
         }
 
 /* PAGINAS */
@@ -454,7 +455,7 @@
     }
 
     .sidebar-footer-nav a {
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 700;
         color: #000;
         text-decoration: none;
