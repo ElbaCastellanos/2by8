@@ -12,7 +12,7 @@ document.querySelectorAll('.menu-toggle').forEach(function (toggle) {
 function ordenar() {
     const cajas = document.querySelectorAll('.cajita'); // Selecciona todas las cajas
     const footer = document.getElementById('footer'); // Selecciona el footer
-    const w = window.innerWidth * 0.75;
+    const w = window.innerWidth * 0.8;
     const h = window.innerHeight;
     const separador = 20;
 
