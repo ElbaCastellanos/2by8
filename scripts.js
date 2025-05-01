@@ -16,33 +16,33 @@ function ordenar() {
     const h = window.innerHeight;
     const separador = 20;
 
-    const Alto_Sin_Separadores = h - separador * 4;
-    const Alto_Entre_Tres = Alto_Sin_Separadores / 3;
+    const Ancho_Sin_Separadores = w - separador * 4;
+    const Lado_Caja = Ancho_Sin_Separadores / 3; // 3 columnas
 
+    let xx = separador;
     let yy = separador;
-    let xx = w - (separador + Alto_Entre_Tres) * 3;
 
-    // Ajustar las cajas dinámicamente
     cajas.forEach((caja, index) => {
-        caja.style.width = `${Alto_Entre_Tres}px`;
-        caja.style.height = `${Alto_Entre_Tres}px`;
+        caja.style.width = `${Lado_Caja}px`;
+        caja.style.height = `${Lado_Caja}px`;
 
         caja.style.left = `${xx}px`;
         caja.style.top = `${yy}px`;
 
-        // Ajustar posición para nuevas filas
+        // Mover a la siguiente fila cada 3 cajas
         if ((index + 1) % 3 === 0) {
-            yy += Alto_Entre_Tres + separador;
-            xx = w - (separador + Alto_Entre_Tres) * 3;
+            yy += Lado_Caja + separador;
+            xx = separador;
         } else {
-            xx += Alto_Entre_Tres + separador;
+            xx += Lado_Caja + separador;
         }
     });
 
-    // Ajustar la posición del footer
-    footer.style.left = `${xx}px`; // Alínea el footer a la izquierda
-
+    // Ajustar la posición del footer debajo de las 2 filas
+    footer.style.left = `${separador}px`;
+    footer.style.top = `${yy + Lado_Caja + separador}px`;
 }
+
 
 window.addEventListener('resize', ordenar);
 window.addEventListener('load', ordenar);
@@ -53,3 +53,4 @@ document.querySelector('.hamburger-menu').addEventListener('click', function () 
     const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle('active'); // Activa/desactiva la clase 'active' para mostrar/ocultar el menú
 });
+
