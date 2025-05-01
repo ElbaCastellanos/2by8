@@ -16,32 +16,35 @@ function ordenar() {
     const h = window.innerHeight;
     const separador = 30;
 
-    const Alto_Sin_Separadores = h - separador * 4;
-    const Alto_Entre_Tres = Alto_Sin_Separadores / 3;
+    const Alto_Sin_Separadores = h - separador * 3; // Solo 2 filas → 3 separadores verticales
+    const Alto_Entre_Dos = Alto_Sin_Separadores / 2;
 
+    const Ancho_Total_Disponible = w - separador * 4; // 3 columnas → 4 separadores horizontales
+    const Ancho_Entre_Tres = Ancho_Total_Disponible / 3;
+
+    let xx = separador;
     let yy = separador;
-    let xx = w - (separador + Alto_Entre_Tres) * 3;
 
-    // Ajustar las cajas dinámicamente
     cajas.forEach((caja, index) => {
-        caja.style.width = `${Alto_Entre_Tres}px`;
-        caja.style.height = `${Alto_Entre_Tres}px`;
+        caja.style.width = `${Ancho_Entre_Tres}px`;
+        caja.style.height = `${Alto_Entre_Dos}px`;
 
         caja.style.left = `${xx}px`;
         caja.style.top = `${yy}px`;
 
-        // Ajustar posición para nuevas filas
+        // Avanza columna
+        xx += Ancho_Entre_Tres + separador;
+
+        // Si completa 3 columnas, salta a siguiente fila
         if ((index + 1) % 3 === 0) {
-            yy += Alto_Entre_Tres + separador;
-            xx = w - (separador + Alto_Entre_Tres) * 3;
-        } else {
-            xx += Alto_Entre_Tres + separador;
+            xx = separador;
+            yy += Alto_Entre_Dos + separador;
         }
     });
 
-    // Ajustar la posición del footer
-    footer.style.left = `${xx}px`; // Alínea el footer a la izquierda
-
+    // Posiciona el footer debajo del grid
+    footer.style.left = `${separador}px`;
+    footer.style.top = `${yy + Alto_Entre_Dos + separador}px`;
 }
 
 window.addEventListener('resize', ordenar);
@@ -54,10 +57,4 @@ document.querySelector('.hamburger-menu').addEventListener('click', function () 
     sidebar.classList.toggle('active'); // Activa/desactiva la clase 'active' para mostrar/ocultar el menú
 });
 
-// Deshabilitar el clic derecho en imágenes
-document.addEventListener('contextmenu', function (event) {
-    if (event.target.tagName.toLowerCase() === 'img') {
-        event.preventDefault(); // Evitar que aparezca el menú contextual
-        alert('Clic derecho deshabilitado en imágenes.');
-    }
-});
+
