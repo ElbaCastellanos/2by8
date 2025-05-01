@@ -190,46 +190,55 @@
             position: absolute;
             bottom: 10px;
             left: 10px;
-            font-size: 1.5em;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project:hover h2 {
-            opacity: 1; /* Muestra el texto al pasar el cursor */
+            font-size: 0.5em;
+            color: rgb(0, 0, 0);
         }
 
         .contenedorcajitas {overflow: scroll}
-
-        .cajita { position:absolute; background-color: #FFFFFF; width:100px; height:100px }
-
-        .cajita img { max-width: 100%; height: auto; 
+        .cajita {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: inherit;
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        .cajita img {
             width: 100%;
             height: auto;
+            display: block;
             transition: opacity 0.3s ease;
         }
 
-        .cajita:hover img { 
+        .cajita:hover img {
             opacity: 0.3;
         }
-
-        .cajita H2 {
-            position: absolute;
-            top: 50%; /* Alineación vertical */
-            left: 50%; /* Alineación horizontal */
-            transform: translate(-50%, -50%); /* Ajusta el centro exacto */
-            font-size: 1.5em;
-            color: white; /* Asegura legibilidad */
-            z-index: 2; /* Muestra el texto sobre la imagen */
-            text-align: center; /* Centra el texto dentro de su contenedor */
-            opacity: 0; /* Inicialmente oculto */
-            transition: opacity 0.3s ease; /* Animación suave */
+        
+        .cajita h2 {
+            font-weight: 300;
+            font-size: 0.8em;
+            margin: 0;
+            margin-top: 4px;
+            text-align: left;
+            color: rgb(70,70,70);
+        }
+        
+        .cajita h2 a {
+            text-decoration: none !important;  /* Fuerza eliminación de subrayado */
+            color: rgb(70,70,70);
         }
 
         .cajita:hover H2 {
             opacity: 1;
-            color:rgb(66, 85, 29);
+            color: rgb(70,70,70);
+
         }
 
 
