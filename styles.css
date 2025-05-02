@@ -8,7 +8,7 @@
 
         html, body {
             font-family: 'Inter', sans-serif;
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(245,245,245);
             color: #000;
             height: 100%vh;
             width: 100%;
@@ -25,7 +25,7 @@
         top:0px;
         width:20%;
         height:100%;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(245,245,245);
         }
 
         .logo {
@@ -45,7 +45,7 @@
         top: 30px; /* Aparece debajo del menú móvil */
         left: 0;
         width: 100%; /* Ocupa todo el ancho */
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(245,245,245);
         z-index: 10;
         padding: 10px 0;
         }
@@ -107,7 +107,7 @@
             bottom: 0;
             left: 0;
             width: 100%; /* Ocupa todo el ancho */
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(245,245,245);
             z-index: 10;
             padding: 10px 0;
             }
@@ -151,7 +151,7 @@
             top:0px;
             width:80%;
             height:98%;
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(245,245,245);
         }
 
 
@@ -167,7 +167,7 @@
         }
 
         .project {
-            background-color: #ffffff;
+            background-color: rgb(245,245,245);
             width: 100%; /* Ajusta al contenedor */
             position: relative;
             display: flex;
@@ -250,7 +250,7 @@
             bottom:0px;
             width:80%;
             height:2%;
-            background-color: rgb(255, 255, 255);
+            background-color:  rgb(245,245,245);
         }
 
         /* Footer */
@@ -312,7 +312,7 @@
 @media (max-width: 768px) {
     body {
         font-family: 'Inter', sans-serif;
-        background-color: rgb(255, 255, 255);
+        background-color:  rgb(245,245,245);
         color: #000;
         display: flex; 
         flex-direction: column; /* Apila los elementos verticalmente */
@@ -352,7 +352,7 @@
         justify-content: space-between; /* Logo a la izquierda y menú hamburguesa a la derecha */
         align-items: center;
         padding: 10px 15px;
-        background-color: rgb(255, 255, 255);
+        background-color:  rgb(245,245,245);
     }
 
     .hamburger-menu {
