@@ -482,8 +482,8 @@
     /* Imágenes que se ajustan al contenedor */
     .responsive-image {
         width: 100%;
-        height: auto; /* Mantiene la proporción */
-        object-fit: cover; /* Opcional: asegura que se cubra el área visible */
-        border-radius: 8px; /* Esquinas redondeadas opcional */
+        height: auto;
+        object-fit: cover;
+        border-radius: 0; /* Sin esquinas redondeadas */
     }
 }
