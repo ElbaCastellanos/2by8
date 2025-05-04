@@ -240,7 +240,27 @@
             color: rgb(70,70,70);
 
         }
+        .contact-text {
+            font-size: 1em;
+            margin: 10px 0;
+            color: #333;
+            line-height: 1.5;
+        }
 
+        .contact-wrapper {
+            height: 100%;
+            display: flex;
+            margin-top: 165px;
+            margin-left: 90px;
+        
+        }
+        
+        .contact-box {
+            text-align: left;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 400px;
+        }
 
     /********* PARTE FOOTER *********/
 
